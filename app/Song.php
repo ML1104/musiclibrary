@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Songs extends Model
+class Song extends Model
 {
     protected $fillable = ['title', 'artist_id', 'album_id', 'user_id'];
 
@@ -15,11 +15,11 @@ class Songs extends Model
 
     public function albums()
     {
-        return $this->belongsTo(\App\Albums::class);
+        return $this->belongsTo(\App\Album::class);
     }
 
     public function artists()
     {
-        return $this->belongsTo(\App\Artists::class);
+        return $this->belongsTo(\App\Artist::class);
     }
 }

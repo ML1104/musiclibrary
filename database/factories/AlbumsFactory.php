@@ -2,7 +2,7 @@
 
 use Faker\Generator as Faker;
 
-$factory->define(\App\Albums::class, function (Faker $faker) {
+$factory->define(\App\Album::class, function (Faker $faker) {
     return [
         'title' => $faker->catchPhrase(),
         'cover_art' => $faker->image(storage_path('app/public/albums'), 300, 300, null, false),

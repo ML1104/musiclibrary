@@ -19,4 +19,6 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/song/create', 'HomeController@create')->name('create-song');
+
 Route::get('/library', 'LibraryController@index')->name('library');
