@@ -36,7 +36,7 @@ class HomeController extends Controller
 //        });
 
         $artists = Artist::with(['songs' => function($q) {
-            $q->orderBy('title')->with(['albums']);
+            $q->where('user_id', \Auth::user()->id)->orderBy('title')->with(['album']);
         }])->orderBy('name')->get();
 
         return view('home', compact('artists'));
@@ -52,6 +52,17 @@ class HomeController extends Controller
 
     public function store(Request $request)
     {
+        if($request->artist) $request->artist_id = null;
+        if($request->album) $request->album_id = null;
+
+        $validatedData = $request->validate([
+            'title' => 'required',
+            'artist_id' => 'required_without:artist',
+            'artist' => 'required_without:artist_id',
+            'album_id' => 'required_without:album',
+            'album' => 'required_without:album_id',
+        ]);
+
         if($request->artist) {
             $artist = Artist::create(['user_id' => \Auth::user()->id, 'name' => $request->artist ]);
         } else {

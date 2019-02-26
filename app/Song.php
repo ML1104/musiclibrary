@@ -13,12 +13,12 @@ class Song extends Model
         return $this->belongsTo(\App\User::class);
     }
 
-    public function albums()
+    public function album()
     {
         return $this->belongsTo(\App\Album::class);
     }
 
-    public function artists()
+    public function artist()
     {
         return $this->belongsTo(\App\Artist::class);
     }

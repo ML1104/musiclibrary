@@ -24,8 +24,31 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="artist">Or Enter New</label>
-                    <input type="text">
+                    <label for="artist">-- or Enter New</label>
+                    <input type="text" class="form-control" id="artist" name="artist">
+                </div>
+
+                <div class="form-group">
+                    <label for="album_id">Select album
+                    </label>
+                    <select name="album_id" id="album_id">
+                        <option value=""></option>
+                        @foreach($albums as $id => $album)
+                            <option value="{{$id}}">{{$album}}</option>
+                        @endforeach
+                    </select>
+
+
+                </div>
+
+                <div class="form-group">
+                    <label for="album">-- or enter new</label>
+                    <input type="text" class="form-control" id="album" name="album">
+                </div>
+
+
+                <div>
+                    <button class="btn btn-primary">Save</button>
                 </div>
             </form>
         </div>
