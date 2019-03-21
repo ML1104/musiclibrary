@@ -11,7 +11,7 @@ class MultiplyCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'utilities:multiply {--operation=multiply}';
+    protected $signature = 'utilities:multiply {--Q|operation=multiply}';
 
     /**
      * The console command description.
@@ -40,12 +40,11 @@ class MultiplyCommand extends Command
         $operation = $this->option('operation');
         $no1 = $this->ask("Give me the first number");
         $no2 = $this->ask("Give me the second number");
-        $result = (int)$no1 * (int)$no2;
-        $this->info("The result is {$result}");
         if($operation == 'divide') {
             $result = (int)$no1 / (int)$no2;
         } else {
             $result = (int)$no1 * (int)$no2;
         }
+        $this->info("The result is {$result}");
     }
 }

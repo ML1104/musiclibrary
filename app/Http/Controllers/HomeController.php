@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Album;
 use App\Artist;
+use App\Events\SongSavedEvent;
 use App\Song;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -82,6 +83,8 @@ class HomeController extends Controller
            'artist_id' => $artist->id,
            'user_id' => \Auth::user()->id
         ]);
+
+        event(new SongSavedEvent($song));
 
         return redirect('/home');
     }
