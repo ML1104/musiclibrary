@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Album;
 use App\Artist;
 use App\Events\SongSavedEvent;
+use App\Mail\WelcomeMail2;
 use App\Song;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -28,6 +29,7 @@ class HomeController extends Controller
      */
     public function index()
     {
+//        Mail::to('miloske1106@gmail.com')->send(new WelcomeMail2());
 //        $songs = Song::with(['artists', 'albums'])
 //            ->where('user_id', \Auth::user()->id)
 //            ->get();
